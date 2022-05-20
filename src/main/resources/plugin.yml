@@ -1,0 +1,8 @@
+name: MobWars
+version: 0.1a
+main: me.bzvol.mobwars.MobWarsPlugin
+api-version: 1.18
+author: Benjámin Zvolenszki
+description: Mobwars-like minigame
+commands:
+  testcmd:
