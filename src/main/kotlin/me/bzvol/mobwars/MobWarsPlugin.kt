@@ -1,6 +1,6 @@
 package me.bzvol.mobwars
 
-import me.bzvol.mobwars.commands.PluginCommand
+import me.bzvol.mobwars.command.PluginCommand
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import org.reflections.Reflections

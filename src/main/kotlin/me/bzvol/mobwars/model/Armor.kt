@@ -1,4 +1,4 @@
-package me.bzvol.mobwars.models
+package me.bzvol.mobwars.model
 
 import org.bukkit.inventory.ItemStack
 

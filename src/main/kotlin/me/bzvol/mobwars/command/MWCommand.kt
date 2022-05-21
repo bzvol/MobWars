@@ -1,4 +1,4 @@
-package me.bzvol.mobwars.commands
+package me.bzvol.mobwars.command
 
 import me.bzvol.mobwars.GameManager
 import org.bukkit.command.CommandSender

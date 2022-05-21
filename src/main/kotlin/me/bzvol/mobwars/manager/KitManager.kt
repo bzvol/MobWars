@@ -1,13 +1,17 @@
-package me.bzvol.mobwars.managers
+package me.bzvol.mobwars.manager
 
 import me.bzvol.mobwars.GameManager
-import me.bzvol.mobwars.models.Kit
+import me.bzvol.mobwars.model.Kit
 import org.bukkit.entity.Player
 
-class KitManager(val gameManager: GameManager) {
+class KitManager(private val gameManager: GameManager) {
     val kitSet: MutableSet<Kit> = mutableSetOf()
 
-    fun loadKits() {
+    init {
+        loadKits()
+    }
+
+    private fun loadKits() {
         throw NotImplementedError()
     }
 

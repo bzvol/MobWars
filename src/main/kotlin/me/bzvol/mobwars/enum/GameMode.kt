@@ -1,4 +1,4 @@
-package me.bzvol.mobwars.enums
+package me.bzvol.mobwars.enum
 
 enum class GameMode {
     WAVES, INFINITE

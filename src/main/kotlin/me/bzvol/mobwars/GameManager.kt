@@ -2,9 +2,9 @@
 
 package me.bzvol.mobwars
 
-import me.bzvol.mobwars.enums.GameMode
-import me.bzvol.mobwars.enums.GameState
-import me.bzvol.mobwars.managers.*
+import me.bzvol.mobwars.enum.GameMode
+import me.bzvol.mobwars.enum.GameState
+import me.bzvol.mobwars.manager.*
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player

@@ -1,4 +1,4 @@
-package me.bzvol.mobwars.managers
+package me.bzvol.mobwars.manager
 
 import me.bzvol.mobwars.GameManager
 

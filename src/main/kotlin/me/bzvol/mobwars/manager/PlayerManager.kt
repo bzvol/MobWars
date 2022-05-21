@@ -1,7 +1,7 @@
-package me.bzvol.mobwars.managers
+package me.bzvol.mobwars.manager
 
 import me.bzvol.mobwars.GameManager
-import me.bzvol.mobwars.models.PlayerSave
+import me.bzvol.mobwars.model.PlayerSave
 import org.bukkit.GameMode
 import org.bukkit.entity.Player
 import java.util.*

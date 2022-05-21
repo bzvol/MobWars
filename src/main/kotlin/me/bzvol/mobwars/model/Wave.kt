@@ -1,4 +1,4 @@
-package me.bzvol.mobwars.models
+package me.bzvol.mobwars.model
 
 import me.bzvol.mobwars.GameManager
 import org.bukkit.entity.Mob
