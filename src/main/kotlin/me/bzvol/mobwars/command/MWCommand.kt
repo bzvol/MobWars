@@ -9,10 +9,10 @@ class MWCommand(override val gameManager: GameManager) : PluginCommand() {
     override fun onExecute(sender: CommandSender, args: Array<out String>) {
         when (args[0]) {
             "start" -> when(args[1]) {
-                "waves" -> gameManager.startWaves(sender)
-                "infinite" -> gameManager.startInfinite(sender)
+                "waves" -> gameManager.launchWaves(sender)
+                "infinite" -> gameManager.launchInfinite(sender)
             }
-            "set" -> when(args[1]) {
+            "config" -> when(args[1]) {
                 "pos1", "pos2", "lobby" -> {
                     if (sender !is Player) {
                         requiresPlayer(sender)

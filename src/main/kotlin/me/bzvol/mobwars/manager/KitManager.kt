@@ -1,18 +1,21 @@
 package me.bzvol.mobwars.manager
 
 import me.bzvol.mobwars.GameManager
+import me.bzvol.mobwars.config.KitConfig
+import me.bzvol.mobwars.gui.KitSelectorGUI
 import me.bzvol.mobwars.model.Kit
 import org.bukkit.entity.Player
 
 class KitManager(private val gameManager: GameManager) {
     val kitSet: MutableSet<Kit> = mutableSetOf()
+    val kitSelectorGUI = KitSelectorGUI(this)
+
+    val kitConfig = KitConfig()
 
     init {
-        loadKits()
-    }
+        kitConfig.config.getKeys(false).forEach { key ->
 
-    private fun loadKits() {
-        throw NotImplementedError()
+        }
     }
 
     fun giveKitToPlayer(player: Player, kit: Kit) {

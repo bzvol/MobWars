@@ -8,4 +8,7 @@ class PluginLogger(private val plugin: MobWarsPlugin, private val loggerPrefix: 
 
     fun sendPlayerMessage(message: String, player: Player, prefix: String = loggerPrefix)
         = player.sendMessage("$prefix $message")
+
+    fun sendGameMessage(message: String, players: List<Player?>, prefix: String = loggerPrefix)
+        = players.forEach { player -> player?.sendMessage("$prefix $message") }
 }

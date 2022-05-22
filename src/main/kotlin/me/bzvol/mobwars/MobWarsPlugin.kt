@@ -20,7 +20,7 @@ class MobWarsPlugin : JavaPlugin() {
 
     private fun registerCommands() {
         val packageName = this::class.java.packageName
-        for (clazz: Class<out PluginCommand> in Reflections("$packageName.commands")
+        for (clazz: Class<out PluginCommand> in Reflections("$packageName.command")
             .getSubTypesOf(PluginCommand::class.java)) {
             val pluginCommand = clazz.getDeclaredConstructor(GameManager::class.java).newInstance(this.gameManager)
             getCommand(pluginCommand.commandInfo.name)?.setExecutor(pluginCommand)
@@ -30,7 +30,7 @@ class MobWarsPlugin : JavaPlugin() {
 
     private fun registerListeners() {
         val packageName = this::class.java.packageName
-        for (clazz: Class<out Listener> in Reflections("$packageName.listeners")
+        for (clazz: Class<out Listener> in Reflections("$packageName.listener")
             .getSubTypesOf(Listener::class.java)) {
             val listener = clazz.getDeclaredConstructor(GameManager::class.java).newInstance(this.gameManager)
             server.pluginManager.registerEvents(listener, this)
