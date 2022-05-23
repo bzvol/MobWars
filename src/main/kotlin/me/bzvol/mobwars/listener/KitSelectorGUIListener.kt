@@ -1,6 +1,7 @@
 package me.bzvol.mobwars.listener
 
 import me.bzvol.mobwars.GameManager
+import me.bzvol.mobwars.PluginMessenger
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -24,7 +25,7 @@ class KitSelectorGUIListener(private val gameManager: GameManager) : Listener {
                     }!!
                     gameManager.kitManager.giveKitToPlayer(p, kit)
 
-                    gameManager.plugin.messenger.sendGameMessage(
+                    PluginMessenger.sendGameMessage(
                         "$p selected ${kit.name} kit!",
                         gameManager.playerManager.getParticipants()
                     )

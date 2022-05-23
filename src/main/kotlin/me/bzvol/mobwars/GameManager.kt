@@ -15,7 +15,6 @@ class GameManager(val plugin: MobWarsPlugin) {
     val waveManager = WaveManager(this)
     val mobSpawnManager = MobSpawnManager(this)
     val mobManager = MobManager(this)
-    val itemBlockManager = ItemBlockManager(this)
 
     var gameState: GameState = GameState.NO_GAME
         private set
@@ -28,14 +27,16 @@ class GameManager(val plugin: MobWarsPlugin) {
     lateinit var specLoc: Location
 
     fun launchWaves(sender: CommandSender) {
-        plugin.messenger.broadcast("Game is starting! Join with /mw join")
+        PluginMessenger.broadcast("Game is starting! Join with /mw join")
 
         if (sender is Player) {
-
+            playerManager.addPlayer(sender)
         }
     }
 
-    fun launchInfinite(sender: CommandSender) {}
+    fun launchInfinite(sender: CommandSender) {
+
+    }
 
     fun start() {}
 

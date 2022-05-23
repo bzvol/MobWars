@@ -8,11 +8,13 @@ import org.reflections.Reflections
 @Suppress("unused")
 class MobWarsPlugin : JavaPlugin() {
     private lateinit var gameManager: GameManager
-    lateinit var messenger: PluginLogger
+    lateinit var messenger: PluginMessenger
 
     override fun onEnable() {
+        instance = this
+
         this.gameManager = GameManager(this)
-        this.messenger = PluginLogger(this, "[MobWars]")
+        PluginMessenger.loggerPrefix = "[MobWars]"
 
         registerCommands()
         registerListeners()
@@ -35,5 +37,9 @@ class MobWarsPlugin : JavaPlugin() {
             val listener = clazz.getDeclaredConstructor(GameManager::class.java).newInstance(this.gameManager)
             server.pluginManager.registerEvents(listener, this)
         }
+    }
+
+    companion object {
+        lateinit var instance: MobWarsPlugin
     }
 }

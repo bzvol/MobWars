@@ -1,7 +1,9 @@
 package me.bzvol.mobwars.manager
 
 import me.bzvol.mobwars.GameManager
+import me.bzvol.mobwars.PluginMessenger
 import me.bzvol.mobwars.model.PlayerSave
+import me.bzvol.mobwars.util.ItemUtil
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.Material
@@ -40,7 +42,7 @@ class PlayerManager(val gameManager: GameManager) {
         } else if (spectators.contains(p.uniqueId)) {
             spectators.remove(p.uniqueId)
             PlayerSave.resetData(p, playerSaves[p.uniqueId]!!)
-        } else gameManager.plugin.messenger.sendPlayerMessage("You are not participating in a game.", p)
+        } else PluginMessenger.sendPlayerMessage("You are not participating in a game.", p)
     }
 
     @Suppress("LocalVariableName")
@@ -53,10 +55,8 @@ class PlayerManager(val gameManager: GameManager) {
     fun isParticipant(p: Player): Boolean = players.contains(p.uniqueId) || spectators.contains(p.uniqueId)
 
     fun setPlayerInventory(p: Player) {
-        val kitSelectItem = gameManager.itemBlockManager
-            .enchantedNamedItem(Material.LEATHER_CHESTPLATE, "Select kit!")
-        val startItem = gameManager.itemBlockManager
-            .enchantedNamedItem(Material.EMERALD, "Start wars!")
+        val kitSelectItem = ItemUtil.enchantedNamedItem(Material.LEATHER_CHESTPLATE, "Select kit!")
+        val startItem = ItemUtil.enchantedNamedItem(Material.EMERALD, "Start wars!")
 
         p.inventory.addItem(kitSelectItem, startItem)
     }
