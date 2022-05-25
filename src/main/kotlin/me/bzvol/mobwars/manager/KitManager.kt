@@ -21,13 +21,15 @@ class KitManager(private val gameManager: GameManager) {
 
     fun createEmptyKit(name: String) = kitSet.add(Kit(name))
 
-    fun setKitArmor(name: String, armorPart: String, item: ItemStack) {
+    fun setKitArmor(name: String, item: ItemStack) {
         val armor = kitSet.find { it.name == name }?.armor
-        when (armorPart) {
-            "helmet" -> armor?.helmet
-            "chestplate" -> armor?.chestplate
-            "leggings" -> armor?.leggings
-            "boots" -> armor?.boots
+        val armorType = item.type
+        when {
+            armorType.name.endsWith("HELMET") -> armor?.helmet
+            armorType.name.endsWith("CHESTPLATE") -> armor?.chestplate
+            armorType.name.endsWith("LEGGINGS") -> armor?.leggings
+            armorType.name.endsWith("BOOTS") -> armor?.boots
+            else -> throw IllegalArgumentException("The item to set is not an armor")
         }
     }
 
@@ -36,7 +38,9 @@ class KitManager(private val gameManager: GameManager) {
     }
 
     fun saveAll() {
-        TODO()
+        kitConfig.clear()
+        kitSet.forEach(kitConfig::saveKit)
+        kitConfig.save()
     }
 
     fun giveKitToPlayer(player: Player, kit: Kit) {

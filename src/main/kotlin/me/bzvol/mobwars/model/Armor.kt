@@ -1,5 +1,6 @@
 package me.bzvol.mobwars.model
 
+import org.bukkit.Material
 import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.inventory.ItemStack
 
