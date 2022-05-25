@@ -2,6 +2,7 @@ package me.bzvol.mobwars.manager
 
 import me.bzvol.mobwars.GameManager
 import me.bzvol.mobwars.PluginMessenger
+import me.bzvol.mobwars.enum.GameState
 import me.bzvol.mobwars.model.PlayerSave
 import me.bzvol.mobwars.util.ItemUtil
 import org.bukkit.Bukkit
@@ -17,7 +18,7 @@ class PlayerManager(val gameManager: GameManager) {
     private val playerSaves: MutableMap<UUID, PlayerSave> = mutableMapOf()
 
     fun addPlayer(p: Player) {
-        if (isParticipant(p)) return
+        if (gameManager.gameState == GameState.ACTIVE || isParticipant(p)) return
 
         players.add(p.uniqueId)
         playerSaves[p.uniqueId] = PlayerSave(p.inventory, p.location, p.gameMode)

@@ -2,8 +2,8 @@
 
 package me.bzvol.mobwars
 
-import me.bzvol.mobwars.enum.GameMode
 import me.bzvol.mobwars.enum.GameState
+import me.bzvol.mobwars.enum.GameType
 import me.bzvol.mobwars.manager.*
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
@@ -18,7 +18,7 @@ class GameManager(val plugin: MobWarsPlugin) {
 
     var gameState: GameState = GameState.NO_GAME
         private set
-    var gameMode: GameMode = GameMode.WAVES
+    var gameMode: GameType = GameType.WAVES
         private set
 
     private lateinit var arenaPos1: Location
@@ -26,19 +26,20 @@ class GameManager(val plugin: MobWarsPlugin) {
     lateinit var lobbyLoc: Location
     lateinit var specLoc: Location
 
-    fun launchWaves(sender: CommandSender) {
-        PluginMessenger.broadcast("Game is starting! Join with /mw join")
+    fun launch(gameMode: GameType, sender: CommandSender) {
+        this.gameState = GameState.LOBBY
+        this.gameMode = gameMode
 
-        if (sender is Player) {
-            playerManager.addPlayer(sender)
-        }
+        val gameModeName = gameMode.name.lowercase().replaceFirstChar { it.titlecase() }
+        PluginMessenger.broadcast("$gameModeName game is starting! Join with /mw join")
+
+        if (sender is Player) playerManager.addPlayer(sender)
     }
 
-    fun launchInfinite(sender: CommandSender) {
-
+    fun start() {
+        this.gameState = GameState.ACTIVE
+        TODO()
     }
-
-    fun start() {}
 
     fun setPosition(sender: Player, positionArg: String) {
         when (positionArg) {

@@ -1,5 +1,5 @@
 package me.bzvol.mobwars.enum
 
-enum class GameMode {
+enum class GameType {
     WAVES, INFINITE
 }
