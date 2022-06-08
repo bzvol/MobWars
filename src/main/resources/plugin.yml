@@ -5,4 +5,5 @@ api-version: 1.18
 author: Benjámin Zvolenszki
 description: Mobwars-like minigame
 commands:
-  testcmd:
+  mw:
+    description: "The main command, read usage here: https://github.com/bzvol/mobwars"
