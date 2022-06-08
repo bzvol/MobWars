@@ -6,5 +6,5 @@ author: Benjámin Zvolenszki
 description: Mobwars-like minigame
 commands:
   mw:
-    description: fakk
-    usage: fakk
+    description: mindenes mobwars parancs
+    usage: itt valami valamiért false-ot dobott vagy nem

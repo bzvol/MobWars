@@ -19,12 +19,20 @@ class Armor : ConfigurationSerializable {
 
     constructor()
 
-    override fun serialize(): MutableMap<String, Any> = mutableMapOf(
-        "helmet" to helmet.serialize(),
-        "chestplate" to chestplate.serialize(),
-        "leggings" to leggings.serialize(),
-        "boots" to boots.serialize()
-    )
+    override fun serialize(): MutableMap<String, Any> {
+        val serialized = mutableMapOf<String, Any>()
+
+        if (this::helmet.isInitialized)
+            serialized["helmet"] = helmet.serialize()
+        if (this::chestplate.isInitialized)
+            serialized["chestplate"] = chestplate.serialize()
+        if (this::leggings.isInitialized)
+            serialized["leggings"] = leggings.serialize()
+        if (this::boots.isInitialized)
+            serialized["boots"] = boots.serialize()
+
+        return serialized
+    }
 
     companion object {
         @Suppress("UNCHECKED_CAST")

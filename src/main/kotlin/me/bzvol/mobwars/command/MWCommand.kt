@@ -39,7 +39,7 @@ class MWCommand(override val gameManager: GameManager) : PluginCommand() {
 
     private fun mwConfig(args: Array<out String>, sender: CommandSender) {
         when (args[1]) {
-            "pos1", "pos2", "lobby" -> {
+            "pos1", "pos2", "lobby", "spec" -> {
                 if (sender !is Player) {
                     requiresPlayer(sender)
                     return
@@ -49,7 +49,6 @@ class MWCommand(override val gameManager: GameManager) : PluginCommand() {
             "save" -> {
                 gameManager.plugin.saveConfig()
                 gameManager.kitManager.saveAll()
-//                TODO()
             }
         }
     }

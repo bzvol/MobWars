@@ -46,6 +46,8 @@ class GameManager(val plugin: MobWarsPlugin) {
             "pos1" -> this.arenaPos1 = sender.location
             "pos2" -> this.arenaPos2 = sender.location
             "lobby" -> this.lobbyLoc = sender.location
+            "spec" -> this.specLoc = sender.location
         }
+        plugin.config["arena.$positionArg"] = sender.location.serialize()
     }
 }
