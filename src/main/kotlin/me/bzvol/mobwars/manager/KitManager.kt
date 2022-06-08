@@ -25,10 +25,10 @@ class KitManager(private val gameManager: GameManager) {
         val armor = kitSet.find { it.name == name }?.armor
         val armorType = item.type
         when {
-            armorType.name.endsWith("HELMET") -> armor?.helmet
-            armorType.name.endsWith("CHESTPLATE") -> armor?.chestplate
-            armorType.name.endsWith("LEGGINGS") -> armor?.leggings
-            armorType.name.endsWith("BOOTS") -> armor?.boots
+            armorType.name.endsWith("HELMET") -> armor?.helmet = item
+            armorType.name.endsWith("CHESTPLATE") -> armor?.chestplate = item
+            armorType.name.endsWith("LEGGINGS") -> armor?.leggings = item
+            armorType.name.endsWith("BOOTS") -> armor?.boots = item
             else -> throw IllegalArgumentException("The item to set is not an armor")
         }
     }

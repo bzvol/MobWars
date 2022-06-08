@@ -49,7 +49,7 @@ class MWCommand(override val gameManager: GameManager) : PluginCommand() {
             "save" -> {
                 gameManager.plugin.saveConfig()
                 gameManager.kitManager.saveAll()
-                TODO()
+//                TODO()
             }
         }
     }

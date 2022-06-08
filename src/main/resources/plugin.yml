@@ -5,4 +5,6 @@ api-version: 1.18
 author: Benjámin Zvolenszki
 description: Mobwars-like minigame
 commands:
-  testcmd:
+  mw:
+    description: fakk
+    usage: fakk
