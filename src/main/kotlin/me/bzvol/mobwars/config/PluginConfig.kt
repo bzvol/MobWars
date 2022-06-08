@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
-abstract class PluginConfig(private val fileName: String) {
+abstract class PluginConfig(fileName: String) {
 
     private val file = File(
         MobWarsPlugin.instance.dataFolder,

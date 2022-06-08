@@ -5,7 +5,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 import org.bukkit.inventory.PlayerInventory
 
-class PlayerSave(
+data class PlayerSave(
     val inventory: PlayerInventory,
     val location: Location,
     val gameMode: GameMode

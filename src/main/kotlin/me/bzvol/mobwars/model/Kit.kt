@@ -5,9 +5,9 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable
 import org.bukkit.inventory.ItemStack
 
 class Kit : ConfigurationSerializable {
-    lateinit var name: String
-    lateinit var armor: Armor
-    lateinit var items: MutableList<ItemStack>
+    var name: String
+    var armor: Armor
+    var items: MutableList<ItemStack>
 
     constructor(name: String, armor: Armor, items: MutableList<ItemStack>) {
         this.name = name

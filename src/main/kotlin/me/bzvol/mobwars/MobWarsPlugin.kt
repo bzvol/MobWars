@@ -13,6 +13,9 @@ class MobWarsPlugin : JavaPlugin() {
     override fun onEnable() {
         instance = this
 
+        if (!this.dataFolder.exists())
+            this.dataFolder.mkdir()
+
         this.gameManager = GameManager(this)
         PluginMessenger.loggerPrefix = "[MobWars]"
 
